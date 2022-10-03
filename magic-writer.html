@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale1.0" />
+  <title>Javascript Magic Writer</title>
+  <style>
+      body {
+          margin: 0;
+          overflow: auto;
+          background: linear-gradient(purple, navy);
+          font-family: monospace;
+          min-height: 100vh;
+          display: flex;
+      }  
+      h2 {
+          margin: 0;
+          margin: auto;
+          font-size: 1.5em;
+          color: #ffffff;
+          padding: 15px;
+          font-weight: 200;
+          width: 100%;
+      }
+      h2:after {
+          content: "|";
+          opacity: 0.8;
+      }
+  </style>
+</head>
+<body>
+
+<h2>Javascript Timing Events:<br><br>
+The window object allows execution of code at specified time intervals.<br>
+These time intervals are called timing events.<br>
+The two key methods to use with JavaScript are:<br>
+setTimeout(function, milliseconds)<br>
+Executes a function, after waiting a specified number of milliseconds.<br>
+setInterval(function, milliseconds)<br>
+Same as setTimeout(), but repeats the execution of the function continuously.</h2>
+
+<script>
+var myParag = document.getElementsByTagName("h2")[0];
+var myText = myParag.innerText;
+let i = 0;
+myParag.innerText = '';
+//alert(myText)
+var makeFunction = setInterval( () => {
+  i++;
+  myParag.innerText = myText.slice(0, i);
+  if ( i == myText.length ) {
+  	//clearInterval(makeFunction);
+    i = 0;
+  }
+}, 100);
+</script>
+
+</body>
+</html>
